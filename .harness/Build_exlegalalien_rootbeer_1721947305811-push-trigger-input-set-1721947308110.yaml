@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_exlegalalien_rootbeer_1721947305811-push-trigger-input-set
+  identifier: Build_exlegalalien_rootbeer_1721947305811pushtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: default_project
+  pipeline:
+    identifier: Build_exlegalalien_rootbeer_1721947305811
+    properties:
+      ci:
+        codebase:
+          build:
+            type: branch
+            spec:
+              branch: <+trigger.branch>
