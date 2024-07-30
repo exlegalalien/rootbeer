@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_exlegalalien_rootbeer_1722371895747-pr-trigger-input-set
+  identifier: Build_exlegalalien_rootbeer_1722371895747prtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: Rootbeer
+  pipeline:
+    identifier: Build_exlegalalien_rootbeer_1722371895747
+    properties:
+      ci:
+        codebase:
+          build:
+            type: PR
+            spec:
+              number: <+trigger.prNumber>
