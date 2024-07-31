@@ -23,3 +23,7 @@ captures/
 
 # Google Services (e.g. APIs or Firebase)
 google-services.json
+
+# zShield files
+*.nwdb
+log.txt

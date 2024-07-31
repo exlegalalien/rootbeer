@@ -1,14 +1,14 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
-
+println "Environment: \n" + System.getenv()
 
 android {
     compileSdkVersion compileSdkVer
     buildToolsVersion buildToolsVer
 
     defaultConfig {
-        applicationId "com.scottyab.rootbeer.sample"
+        applicationId 'com.scottyab.rootbeer.im'
         minSdkVersion minSdkVer
         targetSdkVersion targetSdkVer
         versionCode 10
@@ -49,6 +49,9 @@ android {
 }
 
 dependencies {
+    implementation files(System.getenv('DCP_DIR') + '/dcp-annotations.jar' )
+    // implementation files('/Applications/zShield.app/Contents/Resources/dcp/dcp-annotations.jar')
+
     implementation project(':rootbeerlib')
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
