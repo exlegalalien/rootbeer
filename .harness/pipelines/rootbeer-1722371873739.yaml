@@ -26,29 +26,10 @@ pipeline:
                     command: echo hello world
                   timeout: ""
                   type: Run
-              - step:
-                  identifier: scalabuild
-                  name: scala_build
-                  spec:
-                    command: "gradle build "
-                  timeout: ""
-                  type: Run
-              - step:
-                  identifier: scalatest
-                  name: scala_test
-                  spec:
-                    command: "./gradlew test\n\t\txml_file=$(find /harness/build/test-results/test -type f -name \"*.xml\" | head -n 1)\n\n\t\tif [ -n \"$xml_file\" ]; then\n\t\t\tcp \"$xml_file\" /harness/reports.xml\n\t\t\techo \"XML file copied to /harness/reports.xml\"\n\t\telse\n\t\t\techo \"No XML file found in /path\"\n\t\tfi"
-                    reports:
-                      spec:
-                        paths:
-                          - /harness/reports.xml
-                      type: JUnit
-                  timeout: ""
-                  type: Run
           platform:
-            arch: Amd64
             os: Linux
+            arch: Amd64
           runtime:
-            spec: {}
             type: Cloud
+            spec: {}
         type: CI
