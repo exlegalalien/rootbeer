@@ -47,6 +47,9 @@ jobs:
     - name: Execute gradle build
       run: ./gradlew clean assembleDebug   # Change this to build your mobile application
 
+    - name: Copy apk to ./zscan-upload.apk
+      run: for file in ./app/build/outputs/apk/debug/*.apk ; do cp -v -- "$file" ./zscan-upload.apk ; break ; done
+      
     - name: Run Zimperium zScan
       uses: zimperium/zscanmarketplace@bfc6670f6648d796098c251ccefcfdb98983174d
       timeout-minutes: 60
@@ -58,7 +61,7 @@ jobs:
         # REPLACE: Zimperium Client Secret
         client_secret: ${{ secrets.ZSCAN_CLIENT_SECRET }}
         # REPLACE: The path to an .ipa or .apk
-        app_file: ./app/build/outputs/apk/debug/*.apk
+        app_file: ./zscan-upload.apk
 
     - name: Upload SARIF file
       uses: github/codeql-action/upload-sarif@v3
