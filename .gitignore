@@ -17,6 +17,8 @@ captures/
 
 # Misc
 .DS_Store
+.circleci
+.github
 
 # Keystore files
 *.jks
