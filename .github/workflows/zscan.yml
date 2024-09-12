@@ -38,6 +38,12 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
 
+    - name: Set up Java
+      uses: actions/setup-java@v2
+      with:
+        java-version: 17
+        distribution: "temurin"
+        
     - name: Execute gradle build
       run: ./gradlew clean assembleDebug   # Change this to build your mobile application
 
@@ -46,7 +52,7 @@ jobs:
       timeout-minutes: 60
       with:
         # REPLACE: Zimperium Client Environment Name
-        client_env: "https://zc202.zimperium.com"
+        client_env: zc202
         # REPLACE: Zimperium Client ID
         client_id: cHnYhf5zT5-6r7cUNICNag
         # REPLACE: Zimperium Client Secret
