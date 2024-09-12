@@ -46,7 +46,7 @@ jobs:
       timeout-minutes: 60
       with:
         # REPLACE: Zimperium Client Environment Name
-        client_env: https://zc202.zimperium.com
+        client_env: "https://zc202.zimperium.com"
         # REPLACE: Zimperium Client ID
         client_id: cHnYhf5zT5-6r7cUNICNag
         # REPLACE: Zimperium Client Secret
