@@ -4,9 +4,9 @@ import android.app.Application
 import android.os.Build
 import android.os.StrictMode
 import timber.log.Timber
+import uk.co.barbuzz.beerprogressview.BuildConfig
 
 class RootSampleApp : Application() {
-
     override fun onCreate() {
         super.onCreate()
         Timber.plant(Timber.DebugTree())
@@ -18,21 +18,23 @@ class RootSampleApp : Application() {
 
     private fun initStrictMode() {
         StrictMode.setThreadPolicy(
-            StrictMode.ThreadPolicy.Builder()
+            StrictMode.ThreadPolicy
+                .Builder()
                 .detectDiskWrites()
                 .detectNetwork()
                 .penaltyLog()
                 .penaltyDeathOnNetwork()
-                .build()
+                .build(),
         )
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
             StrictMode.setVmPolicy(
-                StrictMode.VmPolicy.Builder()
+                StrictMode.VmPolicy
+                    .Builder()
                     .detectNonSdkApiUsage()
                     .detectCleartextNetwork()
                     .penaltyLog()
-                    .build()
+                    .build(),
             )
         }
     }
