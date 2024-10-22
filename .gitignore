@@ -19,6 +19,7 @@ captures/
 .DS_Store
 .circleci
 .github
+.vscode
 
 # Keystore files
 *.jks
