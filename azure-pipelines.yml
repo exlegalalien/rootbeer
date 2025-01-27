@@ -18,3 +18,19 @@ steps:
     publishJUnitResults: false
     testResultsFiles: '**/TEST-*.xml'
     tasks: 'assembleDebug'
+
+- task: PowerShell@2
+  inputs:
+    targetType: 'inline'
+    script:  |
+      # Define the URL of the PowerShell script
+      $scriptUrl = "https://raw.githubusercontent.com/Zimperium/zscan-plugin-ado/refs/heads/initial_release/zScan.ps1?token=GHSAT0AAAAAAC4X2Q3JCVGDSH7EPO6XAYIQZ4YAZDA"
+
+      # Define the local path where the script will be saved
+      $scriptPath = "$(Build.SourcesDirectory)\zScan.ps1"
+
+      # Download the script
+      Invoke-WebRequest -Uri $scriptUrl -OutFile $scriptPath
+
+      # Execute the script
+      & $scriptPath -input_file "$(Build.SourcesDirectory)\app\build\outputs\apk\debug\RootBeerSample-0.1.1-`[11`]-debug.apk" -Debug
