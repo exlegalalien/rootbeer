@@ -10,15 +10,10 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- task: JavaToolInstaller@1
-  inputs:
-    versionSpec: '17'
-    jdkArchitectureOption: 'x64'
-    jdkSourceOption: 'PreInstalled'
-
 - task: Gradle@3
   inputs:
     workingDirectory: ''
+    jdkVersionOption: 1.17
     gradleWrapperFile: 'gradlew'
     gradleOptions: '-Xmx3072m'
     publishJUnitResults: false
