@@ -34,6 +34,7 @@ steps:
       Invoke-WebRequest -Uri $scriptUrl -OutFile $scriptPath
 
       Get-ChildItem "$(Build.SourcesDirectory)/app/build/outputs/apk/debug"
+      Test-path -Path '$(Build.SourcesDirectory)/app/build/outputs/apk/debug/RootBeerSample-0.1.1-[11]-debug.apk'
       
       # Execute the script
-      & $scriptPath -input_file "'$(Build.SourcesDirectory)/app/build/outputs/apk/debug/RootBeerSample-0.1.1-`[11`]-debug.apk'" -Debug
+      & $scriptPath -input_file "'$(Build.SourcesDirectory)/app/build/outputs/apk/debug/RootBeerSample-0.1.1-[11]-debug.apk'" -Debug
