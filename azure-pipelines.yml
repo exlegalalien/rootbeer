@@ -25,7 +25,7 @@ steps:
     targetType: 'inline'
     script:  |
       # Define the URL of the PowerShell script
-      $scriptUrl = "https://raw.githubusercontent.com/Zimperium/zscan-plugin-ado/refs/heads/initial_release/zScan.ps1?token=GHSAT0AAAAAAC4X2Q3JCVGDSH7EPO6XAYIQZ4YAZDA"
+      $scriptUrl = "https://raw.githubusercontent.com/Zimperium/zscan-plugin-ado/refs/heads/initial_release/zScan.ps1?token=GHSAT0AAAAAAC4X2Q3IDWFZXBAKQW5USHX4Z4ZBP2Q"
 
       # Define the local path where the script will be saved
       $scriptPath = "$(Build.SourcesDirectory)\zScan.ps1"
@@ -33,7 +33,7 @@ steps:
       # Download the script
       Invoke-WebRequest -Uri $scriptUrl -OutFile $scriptPath
 
-      Get-ChildItem
+      Get-ChildItem "$(Build.SourcesDirectory)/app/build/outputs/apk/debug"
       
       # Execute the script
-      & $scriptPath -input_file "$(Build.SourcesDirectory)/app/build/outputs/apk/debug/RootBeerSample-0.1.1-`[11`]-debug.apk" -Debug
+      & $scriptPath -input_file "'$(Build.SourcesDirectory)/app/build/outputs/apk/debug/RootBeerSample-0.1.1-`[11`]-debug.apk'" -Debug
