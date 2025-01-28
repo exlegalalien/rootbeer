@@ -25,7 +25,7 @@ steps:
     targetType: 'inline'
     script:  |
       # Define the URL of the PowerShell script
-      $scriptUrl = "https://raw.githubusercontent.com/Zimperium/zscan-plugin-ado/refs/heads/initial_release/zScan.ps1?token=GHSAT0AAAAAAC4X2Q3JBVM4IRCY6JNWFMOYZ4ZKMEQ"
+      $scriptUrl = "https://raw.githubusercontent.com/Zimperium/zscan-plugin-ado/refs/heads/initial_release/zScan.ps1?token=GHSAT0AAAAAAC4X2Q3JYZERZIR7ZKUPUHN4Z4ZMV2Q"
 
       # Define the local path where the script will be saved
       $scriptPath = "$(Build.SourcesDirectory)\zScan.ps1"
