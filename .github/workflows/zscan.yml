@@ -51,7 +51,7 @@ jobs:
       run: for file in ./app/build/outputs/apk/debug/*.apk ; do cp -v -- "$file" ./zscan-upload.apk ; break ; done
       
     - name: Run Zimperium zScan
-      uses: zimperium/zscanmarketplace@bfc6670f6648d796098c251ccefcfdb98983174d
+      uses: zimperium/zscanmarketplace@v1.2
       timeout-minutes: 60
       with:
         # REPLACE: Zimperium Client Environment Name
