@@ -35,7 +35,7 @@ steps:
       Invoke-WebRequest -Uri $scriptUrl -OutFile $scriptPath
 
       # Execute the script
-      & $scriptPath -server_url 'https://zc202.zimperium.com' -input_file '$(Build.SourcesDirectory)/app/build/outputs/apk/debug/*.apk' -client_id ${env:ZSCAN_CLIENT_ID} -secret ${env:ZSCAN_CLIENT_SECRET} -branch_name $(Build.SourceBranchName) -build_number $(Build.BuildNumber) -Debug
+      & $scriptPath -server_url 'https://zc202.zimperium.com' -input_file '$(Build.SourcesDirectory)/app/build/outputs/apk/debug/*.apk' -client_id ${env:ZSCAN_CLIENT_ID} -secret ${env:ZSCAN_CLIENT_SECRET} -branch_name $(Build.SourceBranchName) -build_number $(Build.BuildNumber)
 
       Write-Output "Report written to: ${env:ZSCAN_REPORT_FILE}"
   env:
