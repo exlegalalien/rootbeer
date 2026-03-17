@@ -62,7 +62,7 @@ jobs:
         app_file: ./app/build/outputs/apk/debug/*.apk
 
     - name: Copy report to ./Zimperium.sarif
-      run: for file in ./app/build/outputs/apk/debug/*.sarif ; do cp -v -- "$file" ./Zimperium.sarif ; break ; done
+      run: for file in *.sarif ; do mv -v -- "$file" ./Zimperium.sarif ; break ; done
 
     - name: Upload SARIF file
       uses: github/codeql-action/upload-sarif@v3
